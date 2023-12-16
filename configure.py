@@ -14,6 +14,7 @@
 # ==============================================================================
 """configure script to get build parameters from user."""
 
+# Importing important modules
 import argparse
 import errno
 import glob
@@ -31,6 +32,7 @@ except ImportError:
   from distutils.spawn import find_executable as which
 # pylint: enable=g-import-not-at-top
 
+# Setting nvidia 
 _DEFAULT_CUDA_VERSION = '11'
 _DEFAULT_CUDNN_VERSION = '2'
 _DEFAULT_TENSORRT_VERSION = '6'
@@ -129,6 +131,7 @@ def write_action_env_to_bazelrc(var_name, var):
 
 
 def run_shell(cmd, allow_non_zero=False, stderr=None):
+  # Check for any standard error
   if stderr is None:
     stderr = sys.stdout
   if allow_non_zero:
